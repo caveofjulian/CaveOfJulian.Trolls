@@ -105,8 +105,7 @@ function Start-FilePurge([string]$FilePath, [string]$Old, [string]$New) {
 function Should-FileBePurged([string]$FilePath, [array]$Extensions, [array]$Exceptions) {
     $extension = [IO.Path]::GetExtension($FilePath)
     $extension = Remove-ExtensionDot $extension
-    
-    $isPathAFile = 
+     
     $isExtensionAnException = Contains-Extension $Exceptions $extension
     # When count is 0, all extensions should be purged
     $isExtensionProvidedToPurge = ($Extensions.Count -eq 0) -or (Contain-Extension $Extensions $extension)
